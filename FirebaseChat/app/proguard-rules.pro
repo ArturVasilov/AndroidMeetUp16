@@ -1,17 +1,72 @@
-# Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in D:\Android\sdk/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+-keepattributes Signature,Exceptions,InnerClasses,EnclosingMethod,*Annotation*
+-keep public class ru.gdgkazan.firebasechat.** {
+    public static <fields>;
+    public static <methods>;
+    public <methods>;
+    protected <methods>;
+}
 
-# Add any project specific keep options here:
+-keep public interface ru.gdgkazan.firebasechat.** { *; }
+-dontwarn ru.gdgkazan.firebasechat.**
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# gson
+-keep class com.google.gson.** { *; }
+-dontwarn com.google.gson.**
+
+# support library
+-keep class android.support.v4.** { *; }
+-dontwarn android.support.v4.**
+
+-keep class android.support.v7.** { *; }
+-dontwarn android.support.v7.**
+
+-keep class android.support.design.** { *; }
+-dontwarn android.support.design.**
+
+# Retrofit
+-dontwarn okio.**
+-dontwarn retrofit2.**
+
+# Glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+    **[] $VALUES;
+    public *;
+}
+
+# okhttp
+-dontwarn okio.**
+
+### HockeyApp
+-keep class javax.net.ssl.** { *; }
+-keep class org.apache.http.** { *; }
+
+-keep class net.hockeyapp.android.** { *; }
+-dontwarn net.hockeyapp.android.**
+
+# RxJava
+-dontwarn sun.misc.**
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+   long producerIndex;
+   long consumerIndex;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+
+# Retrolambda
+-dontwarn java.lang.invoke.*
+
+# ButterKnife
+-dontwarn butterknife.internal.**
+-keep class butterknife.** { *; }
+-keep class **$$ViewBinder { *; }
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}

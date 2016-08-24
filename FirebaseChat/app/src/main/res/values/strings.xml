@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">FirebaseChat</string>
+    <string name="app_name">Firebase Chat</string>
+    <string name="success_auth">Success auth</string>
+    <string name="failed_auth">Failed auth</string>
+
+    <string name="error.network">Проверьте подключение к интернету.</string>
+    <string name="error.unexpected">unexpected error</string>
+    <string name="button.ok">@android:string/ok</string>
+    <string name="loading">Загрузка…</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="auth_error">Incorrect email or password</string>
+
 </resources>
