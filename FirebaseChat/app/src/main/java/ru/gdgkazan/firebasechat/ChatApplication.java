@@ -6,6 +6,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import ru.gdgkazan.firebasechat.activity.AuthActivity;
+import ru.gdgkazan.firebasechat.app.Analytics;
 
 /**
  * @author Artur Vasilov
@@ -24,6 +25,7 @@ public class ChatApplication extends Application {
     public void onCreate() {
         super.onCreate();
         FirebaseAuth.getInstance().addAuthStateListener(mAuthListener);
+        Analytics.init(this);
     }
 }
 

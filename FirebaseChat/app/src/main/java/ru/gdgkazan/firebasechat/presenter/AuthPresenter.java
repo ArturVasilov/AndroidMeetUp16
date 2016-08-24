@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.io.IOException;
 
 import ru.gdgkazan.firebasechat.R;
+import ru.gdgkazan.firebasechat.app.Analytics;
 import ru.gdgkazan.firebasechat.rx.RxDecor;
 import ru.gdgkazan.firebasechat.rx.RxTask;
 import ru.gdgkazan.firebasechat.rx.rxloader.RxLoader;
@@ -42,6 +43,7 @@ public class AuthPresenter {
     public void init() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
+            Analytics.setCurrentUser(user);
             mAuthView.openMainScreen();
         }
     }
@@ -58,6 +60,10 @@ public class AuthPresenter {
                         if (user == null) {
                             return Observable.error(new IOException());
                         }
+                        Analytics.setCurrentUser(user);
+                        Analytics.buildEvent()
+                                .putString(Analytics.SIGN_IN_TYPE, Analytics.EMAIL_PASSWORD)
+                                .log(Analytics.SIGN_IN);
                         return Observable.just(user);
                     })
                     .compose(RxDecor.async())
