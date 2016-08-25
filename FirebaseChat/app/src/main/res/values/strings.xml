@@ -11,5 +11,6 @@
     <string name="password_hint">Password</string>
     <string name="sign_in">Sign in</string>
     <string name="auth_error">Incorrect email or password</string>
+    <string name="send_uppercase">SEND</string>
 
 </resources>

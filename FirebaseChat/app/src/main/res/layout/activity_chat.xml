@@ -3,11 +3,48 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.ChatActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <include layout="@layout/toolbar"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/messagesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/sendMessageLayout"
+        android:layout_below="@+id/app_bar"
+        android:paddingLeft="@dimen/auth_padding"
+        android:paddingRight="@dimen/auth_padding"
+        tools:ignore="UnknownIdInLayout"/>
+
+    <LinearLayout
+        android:id="@+id/sendMessageLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/messageEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xsmall"
+            android:layout_marginRight="@dimen/margin_xsmall"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:textSize="@dimen/text_medium"/>
+
+        <Button
+            android:id="@+id/sendMessageButton"
+            android:layout_width="@dimen/sendButtonSize"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_xsmall"
+            android:text="@string/send_uppercase"
+            android:textSize="@dimen/text_medium"
+            tools:ignore="RtlHardcoded"/>
+
+    </LinearLayout>
+
+
 </RelativeLayout>
