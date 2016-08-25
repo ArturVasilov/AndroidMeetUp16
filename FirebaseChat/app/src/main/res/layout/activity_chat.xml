@@ -13,8 +13,6 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/sendMessageLayout"
         android:layout_below="@+id/app_bar"
-        android:paddingLeft="@dimen/auth_padding"
-        android:paddingRight="@dimen/auth_padding"
         tools:ignore="UnknownIdInLayout"/>
 
     <LinearLayout
@@ -32,7 +30,8 @@
             android:layout_marginRight="@dimen/margin_xsmall"
             android:layout_weight="1"
             android:inputType="text"
-            android:textSize="@dimen/text_medium"/>
+            android:textSize="@dimen/text_medium"
+            tools:ignore="LabelFor"/>
 
         <Button
             android:id="@+id/sendMessageButton"

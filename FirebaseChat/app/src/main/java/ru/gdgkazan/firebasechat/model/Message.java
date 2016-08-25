@@ -7,17 +7,28 @@ import android.support.annotation.NonNull;
  */
 public class Message {
 
+    private String mUid;
     private String mName;
     private String mMessage;
-    private String mImageUrl;
+    private String mIconUrl;
 
     public Message() {
     }
 
-    public Message(@NonNull String name, @NonNull String message, @NonNull String imageUrl) {
+    public Message(@NonNull String uid, @NonNull String name, @NonNull String message, @NonNull String iconUrl) {
+        mUid = uid;
         mName = name;
         mMessage = message;
-        mImageUrl = imageUrl;
+        mIconUrl = iconUrl;
+    }
+
+    @NonNull
+    public String getUid() {
+        return mUid;
+    }
+
+    public void setUid(@NonNull String uid) {
+        mUid = uid;
     }
 
     @NonNull
@@ -39,11 +50,11 @@ public class Message {
     }
 
     @NonNull
-    public String getImageUrl() {
-        return mImageUrl;
+    public String getIconUrl() {
+        return mIconUrl;
     }
 
-    public void setImageUrl(@NonNull String imageUrl) {
-        mImageUrl = imageUrl;
+    public void setIconUrl(@NonNull String iconUrl) {
+        mIconUrl = iconUrl;
     }
 }

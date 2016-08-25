@@ -11,8 +11,8 @@ import ru.gdgkazan.firebasechat.model.Message;
  */
 public interface ChatView {
 
-    void showMessages(@NonNull List<Message> messages);
-
     void addNewMessage(@NonNull Message message);
+
+    void clearMessageText();
 
 }

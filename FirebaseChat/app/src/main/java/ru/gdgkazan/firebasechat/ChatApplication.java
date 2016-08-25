@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import ru.gdgkazan.firebasechat.activity.AuthActivity;
 import ru.gdgkazan.firebasechat.app.Analytics;
@@ -30,6 +31,7 @@ public class ChatApplication extends Application {
         sInstance = this;
         FirebaseAuth.getInstance().addAuthStateListener(mAuthListener);
         Analytics.init(this);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 
     @NonNull
