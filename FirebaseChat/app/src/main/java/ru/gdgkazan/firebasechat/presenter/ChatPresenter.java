@@ -36,7 +36,8 @@ public class ChatPresenter {
 
     public ChatPresenter(@NonNull ChatView chatView) {
         mChatView = chatView;
-        mMessagesReference = FirebaseDatabase.getInstance().getReference(MESSAGES);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        mMessagesReference = database.getReference(MESSAGES);
         mListener = new MessagesListener();
     }
 
@@ -99,3 +100,4 @@ public class ChatPresenter {
 
     }
 }
+
